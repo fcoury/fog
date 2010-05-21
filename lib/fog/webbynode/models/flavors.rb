@@ -2,23 +2,23 @@ require 'fog/collection'
 require 'fog/slicehost/models/flavor'
 
 module Fog
-  module Slicehost
+  module Webbynode
 
     class Mock
       def flavors
-        Fog::Slicehost::Flavors.new(:connection => self)
+        Fog::Webbynode::Flavors.new(:connection => self)
       end
     end
 
     class Real
       def flavors
-        Fog::Slicehost::Flavors.new(:connection => self)
+        Fog::Webbynode::Flavors.new(:connection => self)
       end
     end
 
     class Flavors < Fog::Collection
 
-      model Fog::Slicehost::Flavor
+      model Fog::Webbynode::Flavor
 
       def all
         data = connection.get_flavors.body['flavors']

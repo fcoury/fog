@@ -1,7 +1,7 @@
 require 'fog/model'
 
 module Fog
-  module Slicehost
+  module Webbynode
 
     class Flavor < Fog::Model
 

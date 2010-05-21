@@ -85,7 +85,7 @@ module Fog
         # when 'POST', 'PUT'
         #   # headers['Content-Type'] = 'application/xml'
         # end
-
+        
         response = @connection.request({
           :email    => @webbynode_email,
           :token    => @webbynode_token,

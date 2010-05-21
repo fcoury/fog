@@ -1,6 +1,6 @@
 module Fog
   module Parsers
-    module Slicehost
+    module Webbynode
 
       class GetImages < Fog::Parsers::Base
 

@@ -15,12 +15,20 @@ module Fog
       #     * 'id'<~Integer> - Id of the image
       #     * 'name'<~String> - Name of the image
       def get_image(image_id)
-        request(
+        response = request(
           :expects  => 200,
-          :method   => 'GET',
-          :parser   => Fog::Parsers::Slicehost::GetImage.new,
-          :path     => "images/#{image_id}"
+          :method   => 'POST',
+          :parser   => Fog::Parsers::Webbynode::GetImage.new(image_id),
+          :path     => "images"
         )
+        
+        # image = response.body['images'].select { |i| i["id"] == image_id }
+        # response.body.delete('image')
+        # response.body['image'] = image.first if image.any?
+        # 
+        # pp response
+        
+        response
       end
 
     end

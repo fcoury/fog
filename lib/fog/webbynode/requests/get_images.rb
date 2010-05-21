@@ -15,12 +15,11 @@ module Fog
       def get_images
         request(
           :expects  => 200,
-          :method   => 'GET',
+          :method   => 'POST',
           :parser   => Fog::Parsers::Webbynode::GetImages.new,
           :path     => 'images'
         )
       end
-
     end
 
     class Mock

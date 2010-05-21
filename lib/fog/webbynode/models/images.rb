@@ -1,12 +1,12 @@
 require 'fog/collection'
-require 'fog/slicehost/models/image'
+require 'fog/webbynode/models/image'
 
 module Fog
-  module Slicehost
+  module Webbynode
 
     class Mock
       def images(attributes = {})
-        Fog::Slicehost::Images.new({
+        Fog::Webbynode::Images.new({
           :connection => self
         }.merge!(attributes))
       end
@@ -14,7 +14,7 @@ module Fog
 
     class Real
       def images(attributes = {})
-        Fog::Slicehost::Images.new({
+        Fog::Webbynode::Images.new({
           :connection => self
         }.merge!(attributes))
       end
@@ -22,7 +22,7 @@ module Fog
 
     class Images < Fog::Collection
 
-      model Fog::Slicehost::Image
+      model Fog::Webbynode::Image
 
       def all
         data = connection.get_images.body['images']
